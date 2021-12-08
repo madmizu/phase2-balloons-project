@@ -27,29 +27,28 @@ html {
   background-size: 1200px;
 }
 
+.dark,
 .light {
   height:100vh;
   width: 100%;
   text-align: center;
-  background-image: url('https://i.ibb.co/fkn6f5W/daytime.png');
   background-position-x: center;
   background-repeat: no-repeat;
   background-size: 1200px;
+  
+}
+
+/* Assign animation for change from nighttime to daytime*/
+.light {
   animation: slideToLight 3s ease forwards 1;
 }
 
+/* Assign animation for change from daytime to nighttime */
 .dark {
-  height:100vh;
-  width: 100%;
-  text-align: center;
-  background-image: url('https://i.ibb.co/WWfHv5F/nighttime.png');
-  background-position-x: center;
-  background-repeat: no-repeat;
-  background-image: url('https://i.ibb.co/fkn6f5W/daytime.png');
-  background-size: 1200px;
   animation: slideToDark 3s ease forwards 1;
 }
 
+/* Animation effect change from daytime to nighttime */
 @keyframes slideToDark{
   0%{
     background-image: url('https://i.ibb.co/fkn6f5W/daytime.png');
@@ -61,6 +60,7 @@ html {
   }
 }
 
+/* Animation effect change from nighttime to daytime */
 @keyframes slideToLight{
   0%{
     background-image: url('https://i.ibb.co/WWfHv5F/nighttime.png');
@@ -72,42 +72,54 @@ html {
   }
 }
 
+/* Styling for all buttons & dropdown menus */
+.buttonstartLight,
+.buttonlight,
+.filterstartLight,
+.filterlight,
+.buttondark,
+.filterdark {
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 17px;
+  text-align: center;
+  width: 175px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border:ridge;
+  border-radius: 25px;
+  border-color: rgb(122, 195, 218, 0.2);;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.9);
+  height: 30px;
+}
+
+/* Style of button when on or toggled to 'daytime' */
 .buttonstartLight,
 .buttonlight,
 .filterstartLight,
 .filterlight {
   background-color: rgba(2, 3, 29, 0.774);
   color: rgb(156, 217, 236);
-  font-family: 'Annie Use Your Telescope', cursive;
-  font-size: 17px;
-  text-align: center;
-  width: 175px;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  border:ridge;
-  border-radius: 25px;
-  border-color: rgb(122, 195, 218, 0.2);;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.9);
-  height: 30px;
 }
 
+/* Style of button when on or toggled to 'nighttime' */
 .buttondark,
 .filterdark {
   background-color: rgba(26, 85, 134, 0.774);
   color: rgb(255, 255, 255);
-  font-family: 'Annie Use Your Telescope', cursive;
-  font-size: 17px;
-  text-align: center;
-  width: 175px;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  border:ridge;
-  border-radius: 25px;
-  border-color: rgb(122, 195, 218, 0.2);;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.9);
-  height: 30px;
 }
 
+/* Hoover effect for all buttons/drowpdown menus */
+.buttonstartLight:hover,
+.buttonlight:hover,
+.filterstartLight:hover,
+.filterlight:hover,
+.buttondark:hover,
+.filterdark:hover {
+  -webkit-transform: translate(2.5%, 10%);
+  transform: translate(2.5%, 10%);
+}
+
+/* Container holds all balloons and has the bobbing animation assigned to it. */
 .container {
   margin-top: 20px;
   width: 100%;
@@ -116,13 +128,14 @@ html {
   animation:moveupanddown 15s ease forwards infinite;
 }
 
+/* Adjust height, set positioning and add animation effect to balloons */
 .balloon {
   height:80%;
-  background-color:(0,0,0,1);
   animation:horizontalmove 15s ease forwards infinite;
   position:relative;
 }
 
+/* Adjust where each balloon will appear on the screen */
 .balloon:nth-child(1) {
   top:30px;
 }
@@ -147,6 +160,7 @@ html {
   top:90px;
 }
 
+/* Animation effect for balloon movement horizontally across the screen*/
 @keyframes horizontalmove {
   0%{
     transform:translatex(0%);
@@ -162,6 +176,7 @@ html {
   }
 }
 
+/* Animation effect for balloon bobbing up and down */
 @keyframes moveupanddown {
   0%{
     transform:translatey(-20px);

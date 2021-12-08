@@ -3,6 +3,12 @@ import { useState } from'react';
 import Header from './components/Header.js';
 import BalloonGifts from './components/BalloonGifts.js';
 import WatchList from './components/WatchList.js';
+import NetflixArray from './temporary/NetflixArray.js'
+import PrimeArray from './temporary/PrimeArray.js'
+import DisneyArray from './temporary/DisneyArray.js'
+import HboArray from './temporary/HboArray.js'
+import HuluArray from './temporary/HuluArray.js'
+import GenresArray from './temporary/GenresArray.js'
 
 function App() {
   // useEffect(()=>{
@@ -70,23 +76,24 @@ function App() {
   //   .catch(err =>console.error(err));
   // }, []);
 
-  // const [netflix, setNetflix] = useState ([]);
-  // const [prime, setPrime] = useState ([]);
-  // const [disney, setDisney] = useState ([]);
-  // const [hbo, setHbo] = useState ([]);
-  // const [hulu, setHulu] = useState ([]);
-  // const [genres, setGenres] = useState ([]);
+  const [netflix, setNetflix] = useState ([NetflixArray]);
+  const [prime, setPrime] = useState ([PrimeArray]);
+  const [disney, setDisney] = useState ([DisneyArray]);
+  const [hbo, setHbo] = useState ([HboArray]);
+  const [hulu, setHulu] = useState ([HuluArray]);
+  const [genres, setGenres] = useState ([GenresArray]);
   const [toggleMode, setToggleMode] = useState ("startLight");
 
-//  console.log(netflix);
-//  console.log(prime);
-//  console.log(disney);
-//  console.log(hbo);
-//  console.log(hulu);
-//  console.log(genres);
+
+ console.log(netflix);
+ console.log(prime);
+ console.log(disney);
+ console.log(hbo);
+ console.log(hulu);
+ console.log(genres);
 
 function popBalloon() {
-
+ console.log("pop")
 }
 
   function handleToggleMode () {
@@ -99,7 +106,6 @@ function popBalloon() {
    }
   }
 
-  
 
   return (
     <div className={toggleMode}>
