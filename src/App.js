@@ -1,8 +1,10 @@
 import './App.css';
 import { useState } from'react';
 import Header from './components/Header.js';
+import BalloonCollection from './components/BalloonCollection.js';
 import BalloonGifts from './components/BalloonGifts.js';
 import WatchList from './components/WatchList.js';
+
 import NetflixArray from './temporary/NetflixArray.js'
 import PrimeArray from './temporary/PrimeArray.js'
 import DisneyArray from './temporary/DisneyArray.js'
@@ -76,21 +78,19 @@ function App() {
   //   .catch(err =>console.error(err));
   // }, []);
 
-  const [netflix, setNetflix] = useState ([NetflixArray]);
-  const [prime, setPrime] = useState ([PrimeArray]);
-  const [disney, setDisney] = useState ([DisneyArray]);
-  const [hbo, setHbo] = useState ([HboArray]);
-  const [hulu, setHulu] = useState ([HuluArray]);
+  // const [netflix, setNetflix] = useState ([].map(item=> item.results));
+  // const [prime, setPrime] = useState ([].map(item=> item.results));
+  // const [disney, setDisney] = useState ([].map(item=> item.results));
+  // const [hbo, setHbo] = useState ([].map(item=> item.results));
+  // const [hulu, setHulu] = useState ([].map(item=> item.results));
   const [genres, setGenres] = useState ([GenresArray]);
   const [toggleMode, setToggleMode] = useState ("startLight");
+  const [selectedCategory, setSelectedCategory] = useState("NeedsSelect")
+  const [allData, setAllData] = useState(
+          [...([NetflixArray].map(item=> item.results))[0],...([PrimeArray].map(item=> item.results))[0],...([DisneyArray].map(item=> item.results))[0],...([HboArray].map(item=> item.results))[0],...([HuluArray].map(item=> item.results))[0]]);
 
-
- console.log(netflix);
- console.log(prime);
- console.log(disney);
- console.log(hbo);
- console.log(hulu);
  console.log(genres);
+ console.log(allData)
 
 function popBalloon() {
  console.log("pop")
@@ -106,15 +106,22 @@ function popBalloon() {
    }
   }
 
-
+  function handleCategoryChange (event) {
+    setSelectedCategory(event.target.value)
+    console.log(selectedCategory);
+  }
+  
   return (
     <div className={toggleMode}>
       <Header
           handleToggleMode={handleToggleMode}
           toggleMode={toggleMode}
+          onCategoryChange={handleCategoryChange}
         />
       <div>
-        <BalloonGifts popBalloon={popBalloon}/>
+        <BalloonCollection
+          popBalloon={popBalloon}
+        />
         <WatchList />
       </div>
     </div>
