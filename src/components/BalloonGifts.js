@@ -1,6 +1,7 @@
 import React from 'react';
 
-function BalloonTest () {
+function BalloonGifts () {
+
     return (
         <>
         <div className="container">
@@ -21,4 +22,4 @@ function BalloonTest () {
     )
 }
 
-export default BalloonTest;
+export default BalloonGifts;
