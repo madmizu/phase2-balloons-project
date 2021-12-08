@@ -5,14 +5,11 @@ const MovieCard = ({results, genres}) => {
         <div className="content">
             <div className="header">{results.title}</div>
             <div className="poster">
-            <img alt={results.title} src={results.posterURLs} />
+            <img alt={results.title} src={results.posterURLs}/></div>
             <div className="overview">{results.overview}</div>
-            <div className="genre">
-            {genres}
-            </div>
-        </div>
+            <div className="genre">{genres}</div>
+            <button className="button">Keep</button>
+            <button className="button">Re-Gift</button>
         </div>
     )
 }
-
-// overview, genres, rating
