@@ -19,3 +19,16 @@ Framework/Mockup:
     Advanced Deliverables:
 - As a user, I should be able to toggle the background image between a “night” and a “day” sky. 
 
+
+    React Component Tree:
+- App
+    - Header
+        - FilterService
+        - FilterGenre
+        - ToggleMode
+    - BalloonGifts
+        - MovieCard
+    - WatchList
+        - MovieGift
+            - MovieCard
+
