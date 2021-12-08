@@ -1,86 +1,194 @@
-.App {
-  text-align: center;
-}
-
-body{
-  min-height:100%;
+body {
+  min-height:100vh;
   overflow: hidden;
-  margin-top: 30px;
-  
 }
 
-html{
+html {
+  background-color:(0,0,0,1);
   height:100%;
 }
 
-.container{
-  width: 100%;
-  height: 200px;
-  animation:moveupanddown 12s ease forwards infinite;
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  align-content: space-around;
+  flex-wrap: nowrap;
 }
 
-.balloon{
-  max-width:auto;
+.startLight {
+  height:100vh;
+  width: 100%;
+  background-color:rgb(122, 195, 218);
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-image: url('https://i.ibb.co/fkn6f5W/daytime.png');
+  background-size: 1200px;
+}
+
+.light {
+  height:100vh;
+  width: 100%;
+  text-align: center;
+  background-image: url('https://i.ibb.co/fkn6f5W/daytime.png');
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-size: 1200px;
+  animation: slideToLight 3s ease forwards 1;
+}
+
+.dark {
+  height:100vh;
+  width: 100%;
+  text-align: center;
+  background-image: url('https://i.ibb.co/WWfHv5F/nighttime.png');
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-image: url('https://i.ibb.co/fkn6f5W/daytime.png');
+  background-size: 1200px;
+  animation: slideToDark 3s ease forwards 1;
+}
+
+@keyframes slideToDark{
+  0%{
+    background-image: url('https://i.ibb.co/fkn6f5W/daytime.png');
+    background-color:rgb(122, 195, 218);
+  }
+  100%{
+    background-image: url('https://i.ibb.co/WWfHv5F/nighttime.png');
+    background-color:rgb(2, 3, 32);
+  }
+}
+
+@keyframes slideToLight{
+  0%{
+    background-image: url('https://i.ibb.co/WWfHv5F/nighttime.png');
+    background-color:rgb(2, 3, 32);
+  }
+  100%{
+    background-image: url('https://i.ibb.co/fkn6f5W/daytime.png');
+    background-color:rgb(122, 195, 218);
+  }
+}
+
+.buttonstartLight,
+.buttonlight,
+.filterstartLight,
+.filterlight {
+  background-color: rgba(2, 3, 29, 0.774);
+  color: rgb(156, 217, 236);
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 17px;
+  text-align: center;
+  width: 175px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border:ridge;
+  border-radius: 25px;
+  border-color: rgb(122, 195, 218, 0.2);;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.9);
+  height: 30px;
+}
+
+.buttondark,
+.filterdark {
+  background-color: rgba(26, 85, 134, 0.774);
+  color: rgb(255, 255, 255);
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 17px;
+  text-align: center;
+  width: 175px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border:ridge;
+  border-radius: 25px;
+  border-color: rgb(122, 195, 218, 0.2);;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.9);
+  height: 30px;
+}
+
+.container {
+  margin-top: 20px;
+  width: 100%;
+  height: 200px;
+  text-align-last: center;
+  animation:moveupanddown 15s ease forwards infinite;
+}
+
+.balloon {
   height:80%;
-  float: left;
-  animation:redxmove 12s ease forwards infinite;
+  background-color:(0,0,0,1);
+  animation:horizontalmove 15s ease forwards infinite;
   position:relative;
 }
 
-.balloon:nth-child(1){
+.balloon:nth-child(1) {
   top:30px;
 }
 
-.balloon:nth-child(2){
+.balloon:nth-child(2) {
   top:70px;
 }
 
-.balloon:nth-child(3){
+.balloon:nth-child(3) {
   top: 10px;
 }
 
-.balloon:nth-child(4){
+.balloon:nth-child(4) {
   top:80px;
 }
 
-.balloon:nth-child(5){
+.balloon:nth-child(5) {
   top:40px;
 }
 
-.balloon:nth-child(6){
+.balloon:nth-child(6) {
   top:90px;
 }
 
-@keyframes redxmove{
+@keyframes horizontalmove {
   0%{
     transform:translatex(0%);
   }
-  50%{
-    transform:translatex(100%);
+  25%{
+    transform:translatex(-80%);
+  }
+  75%{
+    transform:translatex(80%);
   }
   100%{
     transform:translatex(0%);
   }
 }
 
-@keyframes moveupanddown{
+@keyframes moveupanddown {
   0%{
     transform:translatey(-20px);
   }
-  15%{
+  10%{
     transform:translatey(20px);
   }
-  30%{
+  20%{
     transform:translatey(-20px);
   }
-  45%{
+  30%{
+    transform:translatey(20px);
+  }
+  40%{
+    transform:translatey(-20px);
+  }
+  50%{
     transform:translatey(20px);
   }
   60%{
     transform:translatey(-20px);
   }
-  75%{
+  70%{
     transform:translatey(20px);
+  }
+  80%{
+    transform:translatey(-20px);
   }
   90%{
     transform:translatey(20px);

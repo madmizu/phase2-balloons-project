@@ -1,6 +1,7 @@
 import React from 'react';
 
-function BalloonTest ({popBalloon}) {
+function BalloonGifts ({popBalloon}) {
+
     return (
         <>
         <div className="container" onClick={() => popBalloon(console.log("popped"))}>
@@ -21,12 +22,4 @@ function BalloonTest ({popBalloon}) {
     )
 }
 
-
-
-export default BalloonTest;
-
-
-//use if statement if clicked === image id of thing clicked
-//balloon is a button, if clicked change to <>
-//overlay effect <div id=overlay> everything else is in css. 
-
+export default BalloonGifts;
