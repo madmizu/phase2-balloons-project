@@ -157,7 +157,7 @@ function returnToCollection () {
 
   // (in MovieCard) This function is the click handler for 'keeping' a gift & adding to the WatchList
 function keepGift (event) {
-  // setSelectedBalloon(undefined);
+  setSelectedBalloon(undefined);
   setMyMovies (filteredList.filter((movie)=> movie.title === event.target.parentNode.firstChild.textContent))
 }
 console.log(myMovies)
