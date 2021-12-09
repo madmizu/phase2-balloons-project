@@ -1,13 +1,14 @@
 import React from 'react';
 
-const MovieCard = ({results, genres}) => {
+function MovieCard ({ movie, movieIndex, title, genres, summary, poster}) {
     return (
         <div className="content">
-            <div className="header">{results.title}</div>
+            <h2 className="header">{title}</h2>
             <div className="poster">
-            <img alt={results.title} src={results.posterURLs}/></div>
-            <div className="overview">{results.overview}</div>
-            <div className="genre">{genres}</div>
+                <img alt={title} src={poster}/>
+            </div>
+            <p className="overview">{summary}</p>
+            <p className="genre">{genres}</p>
             <button className="button">Keep</button>
             <button className="button">Re-Gift</button>
         </div>

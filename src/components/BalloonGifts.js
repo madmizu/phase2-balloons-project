@@ -1,5 +1,5 @@
 function BalloonGifts (props) {
-const { movie, movieIndex, title, genres, summary, poster, popBalloon } = props
+const { movieIndex, popBalloon } = props
     const balloonColors = [
         "https://i.ibb.co/5KCVxrH/redballoon.gif",
         "https://i.ibb.co/FzQtrZn/yellowballoon.gif",
@@ -26,7 +26,7 @@ const { movie, movieIndex, title, genres, summary, poster, popBalloon } = props
                 id={movieIndex}
                 alt={'Balloon'+movieIndex}
                 src={balloonColors.filter(color=> movieIndex === balloonColors.indexOf(color)) }
-                onClick={popBalloon}>
+                onClick={()=>popBalloon(movieIndex)}>
                     {/* when you click, e.target.id is the id of the balloon, which is equal to the index of the movie in the */}
             </img>
         </>
