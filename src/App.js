@@ -106,7 +106,7 @@ function App() {
   const [filteredList, setFilteredList] = useState((allServices.slice(allListStart, numOfBalloons + allListStart)));
 
   // This is to show our Movie Card or return to BalloonCollection. 
-const [selectedBalloon, setSelectedBalloon] = useState(undefined);
+  const [selectedBalloon, setSelectedBalloon] = useState(undefined);
 
   // (in ToggleFeature) This changes the 'class name' of a number of things from light to dark for the daytime vs nighttime toggle
   function handleToggleMode () {
@@ -143,13 +143,6 @@ const [selectedBalloon, setSelectedBalloon] = useState(undefined);
     }
   };
 
-
-// (in MovieCard) This function is the click handler for 'keeping' a gift & adding to the WatchList
-function keepGift (event) {
-  // setFilteredList(filteredList.map((movie)=> movie.imdbID === poppedBalloon.target.attributes.imdbid.value ? {...movie, watchList: true } : movie))
-  console.log(event)
-}
-
 // (in MovieCard) This is the function to return to BalloonCollection
 function returnToCollection () {
   setSelectedBalloon(undefined)
@@ -159,6 +152,13 @@ function returnToCollection () {
   function popBalloon(poppedBalloon) {
     setSelectedBalloon((filteredList.filter((movie)=> movie.imdbID === poppedBalloon.target.attributes.imdbid.value)))
   }
+
+  // (in MovieCard) This function is the click handler for 'keeping' a gift & adding to the WatchList
+function keepGift (event) {
+  // setSelectedBalloon(undefined);
+  setFilteredList (filteredList.map((movie)=> movie.title === event.target.parentNode.firstChild.textContent ? {...movie, saved: "true"} : movie ))
+}
+
   
   return (
     <div className={toggleMode}>
@@ -174,8 +174,11 @@ function returnToCollection () {
           selectedBalloon={selectedBalloon}
           toggleMode={toggleMode}
           returnToCollection={returnToCollection}
-        />)
-        <WatchList />
+          keepGift={keepGift}
+        />
+        <WatchList 
+          myMovies={filteredList.filter((movie)=>movie.saved)}
+        />
       </div>
     </div>
   );

@@ -229,6 +229,8 @@ html {
   margin-right: auto;
   margin-top: 375px;
   opacity: 0.9;
+  border-radius: 25px;
+  padding: 10px;
 }
 
 .overview,
@@ -240,9 +242,10 @@ html {
   margin-right: auto;
 }
 
-.title-header {
+.titleheader {
   font-family: 'Annie Use Your Telescope', cursive;
   font-size: 40px;
+  margin: 0%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -254,4 +257,14 @@ html {
 .button {
   margin-left: 15px;
   margin-right: 15px;
+}
+
+.watchList {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
 }
