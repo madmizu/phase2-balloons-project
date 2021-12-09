@@ -202,3 +202,45 @@ html {
     transform:translatey(-20px)
   }
 }
+
+.balloon {
+  cursor: crosshair;
+}
+
+.poster-img {
+  width: 35%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1; 
+}
+
+.card-content {
+  background-color: aliceblue;
+  width: 50%;
+  height: auto; 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9;
+}
+
+.overview {
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title-header {
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  align-content: space-around;
+  flex-wrap: nowrap;
+}
