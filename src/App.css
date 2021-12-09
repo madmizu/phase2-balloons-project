@@ -122,16 +122,21 @@ html {
 /* Container holds all balloons and has the bobbing animation assigned to it. */
 .container {
   margin-top: 20px;
-  width: 100%;
+  width: 100vw;
   height: 200px;
+  position: relative;
   text-align-last: center;
-  animation:moveupanddown 15s ease forwards infinite;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Adjust height, set positioning and add animation effect to balloons */
 .balloon {
-  height:80%;
-  animation:horizontalmove 15s ease forwards infinite;
+  height:200px;
+  animation:moveupanddown 25s ease forwards infinite;
   position:relative;
 }
 
@@ -160,26 +165,11 @@ html {
   top:90px;
 }
 
-/* Animation effect for balloon movement horizontally across the screen*/
-@keyframes horizontalmove {
-  0%{
-    transform:translatex(0%);
-  }
-  25%{
-    transform:translatex(-80%);
-  }
-  75%{
-    transform:translatex(80%);
-  }
-  100%{
-    transform:translatex(0%);
-  }
-}
 
 /* Animation effect for balloon bobbing up and down */
 @keyframes moveupanddown {
   0%{
-    transform:translatey(-20px);
+    transform:translatey(-20px)
   }
   10%{
     transform:translatey(20px);
@@ -194,13 +184,13 @@ html {
     transform:translatey(-20px);
   }
   50%{
-    transform:translatey(20px);
+    transform:translatey(20px)
   }
   60%{
     transform:translatey(-20px);
   }
   70%{
-    transform:translatey(20px);
+    transform:translatey(20px)
   }
   80%{
     transform:translatey(-20px);
@@ -209,6 +199,6 @@ html {
     transform:translatey(20px);
   }
   100%{
-    transform:translatey(-20px);
+    transform:translatey(-20px)
   }
 }

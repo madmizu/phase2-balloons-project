@@ -1,21 +1,34 @@
-function BalloonGifts ({popBalloon}) {
+function BalloonGifts (props) {
+const { movie, movieIndex, title, genres, summary, poster, popBalloon } = props
+    const balloonColors = [
+        "https://i.ibb.co/5KCVxrH/redballoon.gif",
+        "https://i.ibb.co/FzQtrZn/yellowballoon.gif",
+        "https://i.ibb.co/BC7m4YC/greenballoon.gif",
+        "https://i.ibb.co/3RLTxRL/orangeballoon.gif",
+        "https://i.ibb.co/5xCgjFk/purpleballoon.gif",
+        "https://i.ibb.co/vD3vc23/blueballoon.gif"
+    ];
+
+    // <BalloonGifts
+    //  key={movie.imdbID}
+    //  title={movie.title}
+    //  genres={movie.genres}
+    //  summary={movie.overview}
+    //  poster={movie.posterURLs.original}
+    //  popBalloon={popBalloon}
+    // />)} 
+
 
     return (
         <>
-        <div className="container" onClick={() => popBalloon(console.log("popped"))}>
-            <img className='balloon' id='red' alt='Red Balloon' src="https://i.ibb.co/5KCVxrH/redballoon.gif">
+            <img 
+                className='balloon'
+                id={movieIndex}
+                alt={'Balloon'+movieIndex}
+                src={balloonColors.filter(color=> movieIndex === balloonColors.indexOf(color)) }
+                onClick={popBalloon}>
+                    {/* when you click, e.target.id is the id of the balloon, which is equal to the index of the movie in the */}
             </img>
-            <img className='balloon' id='yellow' alt='Yellow Balloon' src="https://i.ibb.co/FzQtrZn/yellowballoon.gif">
-            </img>
-            <img className='balloon' id='green' alt='Green Balloon' src="https://i.ibb.co/BC7m4YC/greenballoon.gif">
-            </img>
-            <img className='balloon' id='orange' alt='Orange Balloon' src="https://i.ibb.co/3RLTxRL/orangeballoon.gif">
-            </img>
-            <img className='balloon' id='purple' alt='Purple Balloon' src="https://i.ibb.co/5xCgjFk/purpleballoon.gif">
-            </img>
-            <img className='balloon' id='blue' alt='Blue Balloon' src="https://i.ibb.co/vD3vc23/blueballoon.gif">
-            </img>
-        </div>
         </>
     )
 }

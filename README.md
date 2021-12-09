@@ -24,10 +24,10 @@ Framework/Mockup:
 - App
     - Header
         - FilterService
-        - FilterGenre
         - ToggleMode
-    - BalloonGifts
-        - MovieCard
+    - BalloonCollection
+        - BalloonGifts
+            - MovieCard
     - WatchList
         - MovieGift
             - MovieCard

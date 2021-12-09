@@ -1,5 +1,4 @@
 import FilterService from './FilterService.js';
-import FilterGenre from './FilterGenre.js';
 import ToggleFeature from './ToggleFeature.js';
 
 
@@ -23,9 +22,6 @@ function handleToggleLogo () {
                 <FilterService 
                     toggleMode={toggleMode}
                     handleChange={onServiceChange}
-                />
-                <FilterGenre 
-                    toggleMode={toggleMode}
                 />
             </div>
             <div className="logo">

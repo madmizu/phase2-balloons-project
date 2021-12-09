@@ -13,3 +13,5 @@ const MovieCard = ({results, genres}) => {
         </div>
     )
 }
+
+export default MovieCard;
