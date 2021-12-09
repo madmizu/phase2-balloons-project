@@ -108,6 +108,8 @@ function App() {
   // This is to show our Movie Card or return to BalloonCollection. 
   const [selectedBalloon, setSelectedBalloon] = useState(undefined);
 
+  const [myMovies, setMyMovies] = useState([]);
+
   // (in ToggleFeature) This changes the 'class name' of a number of things from light to dark for the daytime vs nighttime toggle
   function handleToggleMode () {
     if (toggleMode === "startLight") {
@@ -156,8 +158,9 @@ function returnToCollection () {
   // (in MovieCard) This function is the click handler for 'keeping' a gift & adding to the WatchList
 function keepGift (event) {
   // setSelectedBalloon(undefined);
-  setFilteredList (filteredList.map((movie)=> movie.title === event.target.parentNode.firstChild.textContent ? {...movie, saved: "true"} : movie ))
+  setMyMovies (filteredList.filter((movie)=> movie.title === event.target.parentNode.firstChild.textContent))
 }
+console.log(myMovies)
 
   
   return (
@@ -177,7 +180,7 @@ function keepGift (event) {
           keepGift={keepGift}
         />
         <WatchList 
-          myMovies={filteredList.filter((movie)=>movie.saved)}
+          myMovies={myMovies}
         />
       </div>
     </div>

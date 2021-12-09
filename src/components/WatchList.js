@@ -1,4 +1,4 @@
-
+import SavedGift from './SavedGift.js';
 
 function WatchList ({ myMovies }) {
     const giftColors = [
@@ -12,16 +12,15 @@ function WatchList ({ myMovies }) {
 
     return (
         <div className="watchList">
-            {myMovies.map((movie, index)=> {
-                <img a
-                    className='savedMovie'
+            {myMovies.map((movie)=>
+                <SavedGift
                     key={movie.imdbID}
-                    alt={'gift '+movie.title}
-                    index={index}
-                    src={giftColors.filter(color=> index === giftColors.indexOf(color)) }
-                    >
-                </img>
-            })}
+                    imdbid={movie.imdbID}
+                    title={movie.title}
+                    genres={movie.genres}
+                    summary={movie.overview}
+                    poster={movie.posterURLs.original}
+                />)}
             {console.log ('placeholder for watch list')}
         </div>
     )
