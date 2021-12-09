@@ -1,10 +1,10 @@
 
-function FilterService ({ toggleMode }) {
+function FilterService ({ toggleMode, handleChange }) {
 
     return (
         <div>
-            <select className={"filter"+toggleMode}>
-                <option value="NeedsSelect">Select Service Provider</option>
+            <select className={"filter"+toggleMode} onChange={handleChange}>
+                <option value="All">Select Service Provider</option>
                 <option value="Netflix">Netflix</option>
                 <option value="Prime">Amazon Prime</option>
                 <option value="Disney">Disney</option>

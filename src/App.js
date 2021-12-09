@@ -2,7 +2,6 @@ import './App.css';
 import { useState } from'react';
 import Header from './components/Header.js';
 import BalloonCollection from './components/BalloonCollection.js';
-import BalloonGifts from './components/BalloonGifts.js';
 import WatchList from './components/WatchList.js';
 
 import NetflixArray from './temporary/NetflixArray.js'
@@ -11,6 +10,8 @@ import DisneyArray from './temporary/DisneyArray.js'
 import HboArray from './temporary/HboArray.js'
 import HuluArray from './temporary/HuluArray.js'
 import GenresArray from './temporary/GenresArray.js'
+
+const numOfBalloons = 6;
 
 function App() {
   // useEffect(()=>{
@@ -78,19 +79,35 @@ function App() {
   //   .catch(err =>console.error(err));
   // }, []);
 
-  // const [netflix, setNetflix] = useState ([].map(item=> item.results));
-  // const [prime, setPrime] = useState ([].map(item=> item.results));
-  // const [disney, setDisney] = useState ([].map(item=> item.results));
-  // const [hbo, setHbo] = useState ([].map(item=> item.results));
-  // const [hulu, setHulu] = useState ([].map(item=> item.results));
+  
+  const [netflix, setNetflix] = useState ([NetflixArray].map(item=> item.results));
+  const [prime, setPrime] = useState ([PrimeArray].map(item=> item.results));
+  const [disney, setDisney] = useState ([DisneyArray].map(item=> item.results));
+  const [hbo, setHbo] = useState ([HboArray].map(item=> item.results));
+  const [hulu, setHulu] = useState ([HuluArray].map(item=> item.results));
   const [genres, setGenres] = useState ([GenresArray]);
+  // The states above will utilize 'set' when we fetch the APIs again. Right now they are pulling their data from the temporary arrays that we created to prevent running out of API fetches.
+
+  // This is used for changing the daytime and nighttime look of the page.
   const [toggleMode, setToggleMode] = useState ("startLight");
-  const [selectedCategory, setSelectedCategory] = useState("NeedsSelect")
-  const [allData, setAllData] = useState(
-          [...([NetflixArray].map(item=> item.results))[0],...([PrimeArray].map(item=> item.results))[0],...([DisneyArray].map(item=> item.results))[0],...([HboArray].map(item=> item.results))[0],...([HuluArray].map(item=> item.results))[0]]);
+
+  // this is used to make sure what the user selects in the Filter Service list matches the data that will render
+  const [selectedCategory, setSelectedCategory] = useState("All")
+
+  // This combines all of our data into one array. I tried taking this out of state and it did not work, but we probably will not use 'setAllServices'
+  const [allServices, setAllServices] = useState(
+          [...netflix[0],...prime[0],...disney[0],...hbo[0],...hulu[0]]);
+
+  // These are used to make the movies attached to our balloons, 'semi' random. It sets the start of our filter list array to a random index(place) within the original data and then renders the next 6 movies from that point. There is 'allListStart' for the 'allServices' list because that has more movies in the array. There is 'listStart' for each service provider, because they have less movies that the 'allServices' list.
+  const [allListStart, setAllListStart] = useState(()=> Math.floor(Math.random() * (34))+ 0)
+  const [listStart, setlistStart] = useState(()=> Math.floor(Math.random() * (2))+ 0)
+  
+  // This is the list that will be passed to our balloons. The filteredList will always = an array of 6 movies. The list changes based on the Service that is selected by the user.
+  const [filteredList, setFilteredList] = useState((allServices.slice(allListStart, numOfBalloons + allListStart)));
 
  console.log(genres);
- console.log(allData)
+ console.log(allServices);
+ console.log(listStart);
 
 function popBalloon() {
  console.log("pop")
@@ -106,21 +123,43 @@ function popBalloon() {
    }
   }
 
-  function handleCategoryChange (event) {
-    setSelectedCategory(event.target.value)
-    console.log(selectedCategory);
+  // When the Filter Service selections is changed, selectedCategory state is changed to what the user selects as a filter. This function is attached to the Filter Service's 'onChange' listener in the FilteredService component
+  function handleServiceSelect (event) {
+    setSelectedCategory(event.target.value);
   }
+
+  // When the Filter Service selection is changed, the 'filteredList' will be updated with 6 new movies from the selected category. This function is attached to the Filter Service's 'onChange' listener in the FilteredService component
+  function filterMovies () {
+    if (selectedCategory === "All") {
+      setFilteredList(allServices.slice(allListStart, numOfBalloons + allListStart));
+    } else if (selectedCategory === "Netflix") {
+      setFilteredList(netflix[0].slice(listStart, numOfBalloons + listStart));
+    } else if (selectedCategory === "Prime") {
+      setFilteredList( prime[0].slice(listStart, numOfBalloons + listStart));
+    } else if (selectedCategory === "Disney") {
+      setFilteredList(disney[0].slice(listStart, numOfBalloons + listStart));
+    } else if (selectedCategory === "HBO") {
+      setFilteredList(hbo[0].slice(listStart, numOfBalloons + listStart));
+    } else if (selectedCategory === "Hulu") {
+      setFilteredList(hulu[0].slice(listStart, numOfBalloons + listStart));
+    } else {
+      setFilteredList([]);
+    }
+  };
+
+  console.log(filteredList)
   
   return (
     <div className={toggleMode}>
       <Header
           handleToggleMode={handleToggleMode}
           toggleMode={toggleMode}
-          onCategoryChange={handleCategoryChange}
+          onServiceChange={handleServiceSelect, filterMovies}
         />
       <div>
         <BalloonCollection
           popBalloon={popBalloon}
+          moviesList={filteredList}
         />
         <WatchList />
       </div>
