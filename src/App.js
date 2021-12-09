@@ -3,7 +3,6 @@ import { useState } from'react';
 import Header from './components/Header.js';
 import BalloonCollection from './components/BalloonCollection.js';
 import WatchList from './components/WatchList.js';
-import MovieCard from './components/MovieCard.js';
 
 import NetflixArray from './temporary/NetflixArray.js'
 import PrimeArray from './temporary/PrimeArray.js'
@@ -107,7 +106,7 @@ function App() {
   const [filteredList, setFilteredList] = useState((allServices.slice(allListStart, numOfBalloons + allListStart)));
 
   // This is to show our Movie Card or return to BalloonCollection. 
-  const [selectedBalloon, setSelectedBalloon] = useState(undefined);
+const [selectedBalloon, setSelectedBalloon] = useState(undefined);
 
   // (in ToggleFeature) This changes the 'class name' of a number of things from light to dark for the daytime vs nighttime toggle
   function handleToggleMode () {
@@ -144,12 +143,6 @@ function App() {
     }
   };
 
-  // (in BalloonGifts) This is the click handler for each balloon; when clicked, will show MovieCard.
-function popBalloon(poppedBalloon) {
-  setSelectedBalloon(true)
-  setFilteredList(filteredList.map((movie)=> filteredList.indexOf(movie) === poppedBalloon ? {...movie, clicked: true } : movie ))
-  console.log(poppedBalloon + " balloon was clicked")
-}
 
 // (in MovieCard) This function is the click handler for 'keeping' a gift & adding to the WatchList
 function keepGift (poppedBalloon, isTrue = true) {
@@ -161,8 +154,17 @@ function keepGift (poppedBalloon, isTrue = true) {
 function returnCollection (event) {
   setSelectedBalloon(undefined)
 }
+
+
+
+  // (in BalloonGifts) This is the click handler for each balloon; when clicked, will show MovieCard.
+  function popBalloon(poppedBalloon) {
+    setSelectedBalloon(true)
+    setFilteredList(filteredList.filter((movie)=> movie.imdbID === poppedBalloon.target.attributes.cookie.value))
+    console.log(poppedBalloon.target.attributes.cookie.value)
+    console.log()
+  }
   
-  console.log (filteredList)
   return (
     <div className={toggleMode}>
       <Header
@@ -171,23 +173,11 @@ function returnCollection (event) {
           onServiceChange={handleServiceSelect, filterMovies}
         />
       <div>
-        {selectedBalloon ? (filteredList.map((movie, index)=>
-            <MovieCard
-                key={movie.imdbID}
-                movie={movie}
-                movieIndex={index}
-                title={movie.title}
-                genres={movie.genres}
-                summary={movie.overview}
-                poster={movie.posterURLs.original}
-                popBalloon={popBalloon}
-            />))
-          : (<BalloonCollection
-              moviesList={filteredList}
-              popBalloon={popBalloon}
-            />)
-        
-        }
+        <BalloonCollection
+          moviesList={filteredList}
+          popBalloon={popBalloon}
+          selectedBalloon={selectedBalloon}
+        />)
         <WatchList />
       </div>
     </div>
