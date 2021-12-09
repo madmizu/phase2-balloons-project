@@ -1,6 +1,6 @@
 import React from 'react';
 
-function MovieCard ({ movie, movieIndex, title, genres, summary, poster}) {
+function MovieCard ({ title, genres, summary, poster, toggleMode, handleReGift }) {
     return (
         <div className="card-content">
             <h2 className="title-header">{title}</h2>
@@ -9,8 +9,8 @@ function MovieCard ({ movie, movieIndex, title, genres, summary, poster}) {
             </div>
             <p className="overview">{summary}</p>
             <p className="genre">{genres}</p>
-            <button className="button">Keep</button>
-            <button className="button">Re-Gift</button>
+            <button className={"button"+toggleMode}>Keep</button>
+            <button onClick={handleReGift} className={"button"+toggleMode}>Re-Gift</button>
         </div>
     )
 }

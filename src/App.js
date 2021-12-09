@@ -145,24 +145,19 @@ const [selectedBalloon, setSelectedBalloon] = useState(undefined);
 
 
 // (in MovieCard) This function is the click handler for 'keeping' a gift & adding to the WatchList
-function keepGift (poppedBalloon, isTrue = true) {
-  setFilteredList(filteredList.map((movie)=> filteredList.indexOf(movie) === poppedBalloon.id ? {...movie, watchList: isTrue } : movie))
-  console.log(poppedBalloon.id + "balloon was clicked")
+function keepGift (event) {
+  // setFilteredList(filteredList.map((movie)=> movie.imdbID === poppedBalloon.target.attributes.imdbid.value ? {...movie, watchList: true } : movie))
+  console.log(event)
 }
 
 // (in MovieCard) This is the function to return to BalloonCollection
-function returnCollection (event) {
+function returnToCollection () {
   setSelectedBalloon(undefined)
 }
 
-
-
-  // (in BalloonGifts) This is the click handler for each balloon; when clicked, will show MovieCard.
+  // (in BalloonGifts) This is the click handler for each balloon; when clicked, will show one MovieCard.
   function popBalloon(poppedBalloon) {
-    setSelectedBalloon(true)
-    setFilteredList(filteredList.filter((movie)=> movie.imdbID === poppedBalloon.target.attributes.cookie.value))
-    console.log(poppedBalloon.target.attributes.cookie.value)
-    console.log()
+    setSelectedBalloon((filteredList.filter((movie)=> movie.imdbID === poppedBalloon.target.attributes.imdbid.value)))
   }
   
   return (
@@ -177,6 +172,8 @@ function returnCollection (event) {
           moviesList={filteredList}
           popBalloon={popBalloon}
           selectedBalloon={selectedBalloon}
+          toggleMode={toggleMode}
+          returnToCollection={returnToCollection}
         />)
         <WatchList />
       </div>

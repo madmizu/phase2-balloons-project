@@ -2,7 +2,7 @@ import BalloonGifts from './BalloonGifts.js';
 import MovieCard from './MovieCard.js';
 
 function BalloonCollection (props) {
-const { moviesList, popBalloon, selectedBalloon } = props
+const { moviesList, popBalloon, selectedBalloon, toggleMode, returnToCollection } = props
 
 
 // MoviesList equals an array of 6 movies based on user's filter selection
@@ -10,24 +10,24 @@ const { moviesList, popBalloon, selectedBalloon } = props
     return (
         <div className="container">
             {selectedBalloon ? 
-            (moviesList.map((movie, index)=>
+            (selectedBalloon.map((movie)=>
                 <MovieCard
                     key={movie.imdbID}
-                    imdbID={movie.imdbID}
-                    movie={movie}
-                    movieIndex={index}
+                    imdbid={movie.imdbID}
                     title={movie.title}
                     genres={movie.genres}
                     summary={movie.overview}
                     poster={movie.posterURLs.original}
                     popBalloon={popBalloon}
+                    toggleMode={toggleMode}
+                    handleReGift={returnToCollection}
                 />))
           : (moviesList.map((movie, index)=>
                 <BalloonGifts
                     key={movie.imdbID}
                     movieIndex={index}
                     popBalloon={popBalloon}
-                    cookie={movie.imdbID}
+                    imdbid={movie.imdbID}
                 />))
             } 
         </div>
