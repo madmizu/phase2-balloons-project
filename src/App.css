@@ -1,6 +1,7 @@
 body {
   min-height:100vh;
   overflow: hidden;
+  overflow-y: scroll
 }
 
 html {
@@ -78,7 +79,8 @@ html {
 .filterstartLight,
 .filterlight,
 .buttondark,
-.filterdark {
+.filterdark,
+.button {
   font-family: 'Annie Use Your Telescope', cursive;
   font-size: 17px;
   text-align: center;
@@ -114,7 +116,9 @@ html {
 .filterstartLight:hover,
 .filterlight:hover,
 .buttondark:hover,
-.filterdark:hover {
+.filterdark:hover,
+.button:hover
+ {
   -webkit-transform: translate(2.5%, 10%);
   transform: translate(2.5%, 10%);
 }
@@ -223,10 +227,12 @@ html {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 375px;
   opacity: 0.9;
 }
 
-.overview {
+.overview,
+.genre {
   font-family: 'Annie Use Your Telescope', cursive;
   font-size: 20px;
   display: block;
@@ -243,4 +249,9 @@ html {
   flex-direction: row;
   align-content: space-around;
   flex-wrap: nowrap;
+}
+
+.button {
+  margin-left: 15px;
+  margin-right: 15px;
 }
