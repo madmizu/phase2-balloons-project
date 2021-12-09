@@ -4,7 +4,7 @@ import ToggleFeature from './ToggleFeature.js';
 
 
 function Header (props) {
-const { handleToggleMode, toggleMode } = props
+const { handleToggleMode, toggleMode, netflix, prime, disney, hbo, hulu, allMovies, onServiceChange } = props
 
 function handleToggleLogo () {
         if (toggleMode === "startLight") {
@@ -22,6 +22,7 @@ function handleToggleLogo () {
             <div className="filters">
                 <FilterService 
                     toggleMode={toggleMode}
+                    handleChange={onServiceChange}
                 />
                 <FilterGenre 
                     toggleMode={toggleMode}

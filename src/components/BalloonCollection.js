@@ -1,11 +1,13 @@
 import BalloonGifts from './BalloonGifts.js';
 
 function BalloonCollection (props) {
-const { popBalloon, netflix, prime, disney, hbo, hulu } = props
+    
+const { popBalloon, moviesList } = props
+
     return (
         <div className="collection">
             <div className="renderBalloons">
-                <BalloonGifts />
+                <BalloonGifts popBalloon={popBalloon}/>
                 
             </div>
         </div>
