@@ -161,7 +161,7 @@ function keepGift (event) {
   setMyMovies (filteredList.filter((movie)=> movie.title === event.target.parentNode.firstChild.textContent))
 }
 console.log(myMovies)
-
+console.log(genres)
   
   return (
     <div className={toggleMode}>
