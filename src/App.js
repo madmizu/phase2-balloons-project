@@ -105,14 +105,12 @@ function App() {
   // This is the list that will be passed to our balloons. The filteredList will always = an array of 6 movies. The list changes based on the Service that is selected by the user.
   const [filteredList, setFilteredList] = useState((allServices.slice(allListStart, numOfBalloons + allListStart)));
 
- console.log(genres);
- console.log(allServices);
- console.log(listStart);
+  // This is the click handler for each balloon
+  function popBalloon() {
+  console.log("pop")
+  }
 
-function popBalloon() {
- console.log("pop")
-}
-
+  // This changes the 'class name' of a number of things from light to dark for the daytime vs nighttime toggle
   function handleToggleMode () {
     if (toggleMode === "startLight") {
       setToggleMode("dark");
@@ -146,8 +144,6 @@ function popBalloon() {
       setFilteredList([]);
     }
   };
-
-  console.log(filteredList)
   
   return (
     <div className={toggleMode}>
