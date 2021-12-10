@@ -154,10 +154,18 @@ function returnToCollection () {
   }
 
   // (in MovieCard) This function is the click handler for 'keeping' a gift & adding to the WatchList
-function keepGift (event) {
+function keepGift (clickKeep) {
   setSelectedBalloon(undefined);
-  setFilteredList (filteredList.map((movie)=> movie.title === event.target.parentNode.firstChild.textContent ? {...movie, saved: true} : movie))
+  setFilteredList (filteredList.map((movie)=> movie.title === clickKeep.target.parentNode.firstChild.textContent ? {...movie, saved: true} : movie));
 }
+
+function removeGift (selectedGift) {
+  console.log("remove button was clicked!")  
+  console.log(selectedGift);
+  console.log(selectedGift.target.parentNode.lastChild.textContent);
+  setFilteredList (filteredList.map((movie)=> movie.title === selectedGift.target.parentNode.lastChild.textContent ? {...movie, saved: false} : movie));
+}
+
 console.log(filteredList)
   
   return (
@@ -179,6 +187,7 @@ console.log(filteredList)
         <WatchList 
           myMovies={filteredList.filter(movie=> movie.saved)}
           toggleMode={toggleMode}
+          removeGift={removeGift}
         />
       </div>
     </div>

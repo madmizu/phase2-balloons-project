@@ -11,10 +11,12 @@ Framework/Mockup:
 
     User Stories: 
 - As a user, I should be able to view six floating presents attached to balloons on the page. 
-- As a user, I should be able to filter my options by selecting the genre and streaming platform of choice from a dropdown menu. 
-- As a user, I should be able to click on the balloon attached to the present so that the present will “open” and display a movie/series suggestion.
-- As a user, I should be able to click a “keep” or “re-gift” button for each suggestion. 
-- As a user, I should be able to add a movie/series to my watch list by clicking the “keep” button. 
+- As a user, I should be able to filter my options by selecting a streaming platform of choice from a dropdown menu. 
+- As a user, I should be able to click on the balloon attached to the present so that the present will “open” and display a movie suggestion.
+- As a user, I should be able to click a “keep” to add a movie to my watch list
+- As a user, I should be able to click a "re-gift" to return to all balloons.
+- As a user, I should see my watch list appear at the bottom of the screen.
+- As a user, I should be able to remove a movie from my watch list by clicking on it.
 	
     Advanced Deliverables:
 - As a user, I should be able to toggle the background image between a “night” and a “day” sky. 
@@ -24,11 +26,10 @@ Framework/Mockup:
 - App
     - Header
         - FilterService
-        - ToggleMode
+        - ToggleFeature
     - BalloonCollection
         - BalloonGifts
-            - MovieCard
+        - MovieCard
     - WatchList
-        - MovieGift
-            - MovieCard
+        - SavedGift
 

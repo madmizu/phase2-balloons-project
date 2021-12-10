@@ -32,7 +32,6 @@ html {
 .light {
   height:100vh;
   width: 100%;
-  text-align: center;
   background-position-x: center;
   background-repeat: no-repeat;
   background-size: 1200px;
@@ -263,25 +262,29 @@ html {
 .watchListlight,
 .watchListstartLight {
   position: fixed;
-  left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgba(2, 3, 29, 0.5);
   color: white;
-  text-align: center;
+  display: inline-flex;
+  padding-left: 15%;
 }
 .watchListdark {
   position: fixed;
-  left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgb(156, 217, 236, 0.5);
   color: white;
-  text-align: center;
+  display: inline-flex;
+  display: center;
+  padding-left: 15%;
 }
 
 .gift {
   font-family: 'Annie Use Your Telescope', cursive;
+  width: 125px;
+  text-align: center;
+  background-color: rgba(40, 122, 105, 0.2);
+  padding-left: 10px;
+  padding-right:10px;
 }
 
 /* .gift {
@@ -299,9 +302,14 @@ html {
 } */
 
 img.giftbox {
-  width:50px;
-  padding-left: 20px;
-  padding-right: 20px;
+  width:60px;
+  margin-top:10px;
+}
+
+.giftTitle {
+  padding: 0%;
+  margin:0%;
+  font-size: 20px;
 }
 
 /* 

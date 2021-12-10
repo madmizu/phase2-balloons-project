@@ -1,14 +1,7 @@
 import SavedGift from './SavedGift.js';
 
-function WatchList ({ myMovies, toggleMode }) {
-    const giftColors = [
-        "https://i.ibb.co/NxtX8yk/redgift.png",
-        "https://i.ibb.co/wKVMxNX/yellowgift.png",
-        "https://i.ibb.co/Rg3GPNQ/greengift.png",
-        "https://i.ibb.co/BBz3j3v/orangegift.png",
-        "https://i.ibb.co/CwRKN20/purplegift.png",
-        "https://i.ibb.co/HgpTWDq/bluegift.png",
-    ];
+// props from App
+function WatchList ({ myMovies, toggleMode, removeGift }) {
 
     return (
         <div className={"watchList"+toggleMode}>
@@ -21,6 +14,7 @@ function WatchList ({ myMovies, toggleMode }) {
                     genres={movie.genres}
                     summary={movie.overview}
                     toggleMode={toggleMode}
+                    handleClick={removeGift}
                 />)}
             {console.log ('placeholder for watch list')}
         </div>
