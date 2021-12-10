@@ -15,8 +15,10 @@ const { moviesList, popBalloon, selectedBalloon, toggleMode, returnToCollection,
                     key={movie.imdbID}
                     imdbid={movie.imdbID}
                     title={movie.title}
-                    genres={movie.genres}
+                    cast={movie.cast}
                     summary={movie.overview}
+                    year={movie.year}
+                    runtime={movie.runtime}
                     poster={movie.posterURLs.original}
                     popBalloon={popBalloon}
                     toggleMode={toggleMode}

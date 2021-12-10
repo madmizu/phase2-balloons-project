@@ -166,6 +166,7 @@ function openMovieCard (clickedGift) {
 }
 
 console.log(filteredList)
+console.log(netflix)
   
   return (
     <div className={toggleMode}>

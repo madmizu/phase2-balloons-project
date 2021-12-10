@@ -241,6 +241,9 @@ html {
   margin-right: auto;
 }
 
+.castMembers{
+  text-align: left;
+}
 .titleheader {
   font-family: 'Annie Use Your Telescope', cursive;
   font-size: 40px;
