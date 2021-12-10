@@ -222,21 +222,22 @@ html {
 
 .card-content {
   background-color: aliceblue;
-  width: 50%;
+  width: 40%;
   height: auto; 
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 375px;
+  margin-top: 300px;
   opacity: 0.9;
   border-radius: 25px;
   padding: 10px;
+  z-index: 1;
 }
 
 .overview,
 .genre {
   font-family: 'Annie Use Your Telescope', cursive;
-  font-size: 20px;
+  font-size: 15px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -259,12 +260,55 @@ html {
   margin-right: 15px;
 }
 
-.watchList {
+.watchListlight,
+.watchListstartLight {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: red;
+  background-color: rgba(2, 3, 29, 0.5);
   color: white;
   text-align: center;
 }
+.watchListdark {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(156, 217, 236, 0.5);
+  color: white;
+  text-align: center;
+}
+
+.gift {
+  font-family: 'Annie Use Your Telescope', cursive;
+}
+
+/* .gift {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 12px;
+  height: 120px;
+  font-family: 'Annie Use Your Telescope', cursive;
+  margin-left: 10px;
+  margin-right: 10px;
+} */
+
+img.giftbox {
+  width:50px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* 
+background-color: rgba(2, 3, 29, 0.774);
+color: rgb(156, 217, 236);
+
+
+
+background-color: rgba(26, 85, 134, 0.774);
+color: rgb(255, 255, 255); */

@@ -1,6 +1,6 @@
 import SavedGift from './SavedGift.js';
 
-function WatchList ({ myMovies }) {
+function WatchList ({ myMovies, toggleMode }) {
     const giftColors = [
         "https://i.ibb.co/NxtX8yk/redgift.png",
         "https://i.ibb.co/wKVMxNX/yellowgift.png",
@@ -11,15 +11,16 @@ function WatchList ({ myMovies }) {
     ];
 
     return (
-        <div className="watchList">
+        <div className={"watchList"+toggleMode}>
             {myMovies.map((movie)=>
                 <SavedGift
                     key={movie.imdbID}
+                    saved={movie.saved}
                     imdbid={movie.imdbID}
                     title={movie.title}
                     genres={movie.genres}
                     summary={movie.overview}
-                    poster={movie.posterURLs.original}
+                    toggleMode={toggleMode}
                 />)}
             {console.log ('placeholder for watch list')}
         </div>

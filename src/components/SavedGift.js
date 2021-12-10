@@ -1,12 +1,11 @@
 import React from 'react';
 
-function SavedGift ({ title, imdbid, genres, summary, poster, toggleMode, handleReGift, handleKeepGift }) {
+
+function SavedGift ({ title, imdbid, toggleMode}) {
     return (
         <div className="gift" id={imdbid}>
-            <div className="poster">
-                <img className={"gift"+imdbid} alt={title} src="https://i.ibb.co/HgpTWDq/bluegift.png"/>
-            </div>
-            <h2 className="titleheader">{title}</h2>
+                <img className="giftbox" alt={title} src={"https://i.ibb.co/1v1D7P5/whitegift.png" }/>
+            <p className="giftTitle">{title}</p>
         </div>
     )
 }
