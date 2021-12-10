@@ -16,11 +16,11 @@ const numOfBalloons = 6;
 function App() {
   // useEffect(()=>{
   // // Fetch API for Netflix & set 'netflix' state to the data returned
-  //   fetch("https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=netflix&type=movie&genre=5&page=1&output_language=en&language=en", {
-  //     "method": "GET",
-  //     "headers": {
-  //       "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-  //       "x-rapidapi-key": "f8bf12cd32mshe0ec1c6209f8a0cp196ab6jsn50e0a81fb28a"
+  // fetch("https://streaming-availability.p.rapidapi.com/search/basic?country=us&service=netflix&type=movie&page=13&output_language=en&language=en", {
+  //   "method": "GET",
+  //   "headers": {
+  //     "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
+  //     "x-rapidapi-key": "f8bf12cd32mshe0ec1c6209f8a0cp196ab6jsn50e0a81fb28a"
   //   }
   // })
   //   .then(response => response.json())
@@ -65,26 +65,15 @@ function App() {
   //   })
   //   .then(response => response.json())
   //   .then(json=>setHulu(json))
-
-  // // Fetch API for genres & set 'genres' state to the data returned
-  //   fetch("https://streaming-availability.p.rapidapi.com/genres", {
-  //     "method": "GET",
-  //     "headers": {
-  //       "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-  //       "x-rapidapi-key": "f8bf12cd32mshe0ec1c6209f8a0cp196ab6jsn50e0a81fb28a"
-  //     }
-  //   })
-  //   .then(response => response.json())
-  //   .then(json=>setGenres(json))
   //   .catch(err =>console.error(err));
   // }, []);
 
   
-  const [netflix, setNetflix] = useState ([NetflixArray].map(item=> item.results));
-  const [prime, setPrime] = useState ([PrimeArray].map(item=> item.results));
-  const [disney, setDisney] = useState ([DisneyArray].map(item=> item.results));
-  const [hbo, setHbo] = useState ([HboArray].map(item=> item.results));
-  const [hulu, setHulu] = useState ([HuluArray].map(item=> item.results));
+  const [netflix, setNetflix] = useState ([]);
+  const [prime, setPrime] = useState ([]);
+  const [disney, setDisney] = useState ([]);
+  const [hbo, setHbo] = useState ([]);
+  const [hulu, setHulu] = useState ([]);
   const [genres, setGenres] = useState ([GenresArray]);
   // The states above will utilize 'set' when we fetch the APIs again. Right now they are pulling their data from the temporary arrays that we created to prevent running out of API fetches.
 
@@ -96,7 +85,7 @@ function App() {
 
   // This combines all of our data into one array. I tried taking this out of state and it did not work, but we probably will not use 'setAllServices'
   const [allServices, setAllServices] = useState(
-          [...netflix[0],...prime[0],...disney[0],...hbo[0],...hulu[0]]);
+          [...[NetflixArray].map(item=> item.results)[0],...[PrimeArray].map(item=> item.results)[0],...[DisneyArray].map(item=> item.results)[0],...[HboArray].map(item=> item.results)[0],...[HuluArray].map(item=> item.results)[0]]);
 
   // These are used to make the movies attached to our balloons, 'semi' random. It sets the start of our filter list array to a random index(place) within the original data and then renders the next 6 movies from that point. There is 'allListStart' for the 'allServices' list because that has more movies in the array. There is 'listStart' for each service provider, because they have less movies that the 'allServices' list.
   const [allListStart, setAllListStart] = useState(()=> Math.floor(Math.random() * (34))+ 0)

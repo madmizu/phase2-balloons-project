@@ -133,40 +133,117 @@ html {
   align-content: center;
   align-items: center;
   justify-content: center;
+  animation:moveupanddown 25s ease forwards infinite;
 }
 
 /* Adjust height, set positioning and add animation effect to balloons */
 .balloon {
   height:200px;
-  animation:moveupanddown 25s ease forwards infinite;
   position:relative;
 }
 
 /* Adjust where each balloon will appear on the screen */
 .balloon:nth-child(1) {
   top:30px;
+  animation:xmove1 25s ease forwards infinite;
 }
 
 .balloon:nth-child(2) {
   top:70px;
+  animation:xmove2 25s ease forwards infinite;
 }
 
 .balloon:nth-child(3) {
   top: 10px;
+  animation:xmove4 25s ease forwards infinite;
 }
 
 .balloon:nth-child(4) {
   top:80px;
+  animation:xmove1 25s ease forwards infinite;
 }
 
 .balloon:nth-child(5) {
   top:40px;
+  animation:xmove3 25s ease forwards infinite;
 }
 
 .balloon:nth-child(6) {
   top:90px;
+  animation:xmove4 25s ease forwards infinite;
 }
 
+@keyframes xmove1 {
+  0%{
+    transform:translatex(0%);
+  }
+  25%{
+    transform:translatex(-20%);
+  }
+  75%{
+    transform:translatex(20%);
+  }
+  100%{
+    transform:translatex(0%);
+  }
+}
+
+@keyframes xmove2 {
+  0%{
+    transform:translatex(0%);
+  }
+  20%{
+    transform:translatex(10%);
+  }
+  40%{
+    transform:translatex(-20%);
+  }
+  60%{
+    transform:translatex(20%);
+  }
+  80%{
+    transform:translatex(-10%);
+  }
+  100%{
+    transform:translatex(0%);
+  }
+}
+
+@keyframes xmove3 {
+  0%{
+    transform:translatex(0%);
+  }
+  20%{
+    transform:translatex(-10%);
+  }
+  40%{
+    transform:translatex(20%);
+  }
+  60%{
+    transform:translatex(-20%);
+  }
+  80%{
+    transform:translatex(10%);
+  }
+  100%{
+    transform:translatex(0%);
+  }
+}
+
+@keyframes xmove4 {
+  0%{
+    transform:translatex(0%);
+  }
+  25%{
+    transform:translatex(20%);
+  }
+  75%{
+    transform:translatex(-20%);
+  }
+  100%{
+    transform:translatex(0%);
+  }
+}
 
 /* Animation effect for balloon bobbing up and down */
 @keyframes moveupanddown {
