@@ -133,13 +133,13 @@ html {
   align-content: center;
   align-items: center;
   justify-content: center;
-  animation:moveupanddown 25s ease forwards infinite;
 }
 
 /* Adjust height, set positioning and add animation effect to balloons */
 .balloon {
   height:200px;
   position:relative;
+  
 }
 
 /* Adjust where each balloon will appear on the screen */

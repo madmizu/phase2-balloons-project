@@ -31,8 +31,7 @@ const { moviesList, popBalloon, selectedBalloon, toggleMode, returnToCollection,
                     movieIndex={index}
                     popBalloon={popBalloon}
                     imdbid={movie.imdbID}
-                />)
-            } 
+                 />)} 
         </div>
     )
 }
