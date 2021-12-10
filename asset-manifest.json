@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/phase2-balloons-project/static/css/main.7e1f5fc2.chunk.css",
+    "main.js": "/phase2-balloons-project/static/js/main.9b38714d.chunk.js",
+    "main.js.map": "/phase2-balloons-project/static/js/main.9b38714d.chunk.js.map",
+    "runtime-main.js": "/phase2-balloons-project/static/js/runtime-main.727a3f1f.js",
+    "runtime-main.js.map": "/phase2-balloons-project/static/js/runtime-main.727a3f1f.js.map",
+    "static/js/2.5ec796e4.chunk.js": "/phase2-balloons-project/static/js/2.5ec796e4.chunk.js",
+    "static/js/2.5ec796e4.chunk.js.map": "/phase2-balloons-project/static/js/2.5ec796e4.chunk.js.map",
+    "static/js/3.4181be8f.chunk.js": "/phase2-balloons-project/static/js/3.4181be8f.chunk.js",
+    "static/js/3.4181be8f.chunk.js.map": "/phase2-balloons-project/static/js/3.4181be8f.chunk.js.map",
+    "index.html": "/phase2-balloons-project/index.html",
+    "static/css/main.7e1f5fc2.chunk.css.map": "/phase2-balloons-project/static/css/main.7e1f5fc2.chunk.css.map",
+    "static/js/2.5ec796e4.chunk.js.LICENSE.txt": "/phase2-balloons-project/static/js/2.5ec796e4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.727a3f1f.js",
+    "static/js/2.5ec796e4.chunk.js",
+    "static/css/main.7e1f5fc2.chunk.css",
+    "static/js/main.9b38714d.chunk.js"
+  ]
+}
