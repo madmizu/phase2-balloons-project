@@ -1,7 +1,6 @@
 body {
   min-height:100vh;
-  overflow: hidden;
-  overflow-y: scroll
+  overflow-y: auto;
 }
 
 html {
@@ -259,6 +258,16 @@ html {
   margin-right: 15px;
 }
 
+.watchlistImage {
+  position: fixed;
+  bottom:19%;
+  padding-left: 16%;
+  height: 30px;
+}
+.outer {
+  text-align: left;
+}
+
 .watchListlight,
 .watchListstartLight {
   position: fixed;
@@ -281,25 +290,12 @@ html {
 .gift {
   font-family: 'Annie Use Your Telescope', cursive;
   width: 125px;
+  height: 150px;
   text-align: center;
   background-color: rgba(40, 122, 105, 0.2);
   padding-left: 10px;
   padding-right:10px;
 }
-
-/* .gift {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  align-content: flex-start;
-  flex-wrap: wrap;
-  justify-content: center;
-  font-size: 12px;
-  height: 120px;
-  font-family: 'Annie Use Your Telescope', cursive;
-  margin-left: 10px;
-  margin-right: 10px;
-} */
 
 img.giftbox {
   width:60px;
@@ -311,12 +307,3 @@ img.giftbox {
   margin:0%;
   font-size: 20px;
 }
-
-/* 
-background-color: rgba(2, 3, 29, 0.774);
-color: rgb(156, 217, 236);
-
-
-
-background-color: rgba(26, 85, 134, 0.774);
-color: rgb(255, 255, 255); */

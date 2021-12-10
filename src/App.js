@@ -143,9 +143,10 @@ function App() {
     }
   };
 
-// (in MovieCard) This is the function to return to BalloonCollection
-function returnToCollection () {
+// (in MovieCard) This is the function to return to BalloonCollection, or add gift to watch list.
+function returnToCollection (clickRegift) {
   setSelectedBalloon(undefined)
+  setFilteredList (filteredList.map((movie)=> movie.title === clickRegift.target.parentNode.firstChild.textContent ? {...movie, saved: false} : movie));
 }
 
   // (in BalloonGifts) This is the click handler for each balloon; when clicked, will show one MovieCard.
@@ -159,11 +160,9 @@ function keepGift (clickKeep) {
   setFilteredList (filteredList.map((movie)=> movie.title === clickKeep.target.parentNode.firstChild.textContent ? {...movie, saved: true} : movie));
 }
 
-function removeGift (selectedGift) {
-  console.log("remove button was clicked!")  
-  console.log(selectedGift);
-  console.log(selectedGift.target.parentNode.lastChild.textContent);
-  setFilteredList (filteredList.map((movie)=> movie.title === selectedGift.target.parentNode.lastChild.textContent ? {...movie, saved: false} : movie));
+function openMovieCard (clickedGift) {
+  setSelectedBalloon((filteredList.filter((movie)=> movie.title === clickedGift.target.nextSibling.textContent)))
+  console.log(clickedGift)
 }
 
 console.log(filteredList)
@@ -184,11 +183,11 @@ console.log(filteredList)
           returnToCollection={returnToCollection}
           keepGift={keepGift}
         />
+        {filteredList.find(movie=>movie.saved) ?
         <WatchList 
           myMovies={filteredList.filter(movie=> movie.saved)}
           toggleMode={toggleMode}
-          removeGift={removeGift}
-        />
+          openMovieCard={openMovieCard} /> : <></>}
       </div>
     </div>
   );

@@ -3,15 +3,13 @@ import ToggleFeature from './ToggleFeature.js';
 
 
 function Header (props) {
-const { handleToggleMode, toggleMode, netflix, prime, disney, hbo, hulu, allMovies, onServiceChange } = props
+const { handleToggleMode, toggleMode, onServiceChange } = props
 
 function handleToggleLogo () {
-        if (toggleMode === "startLight") {
-            return ("https://i.ibb.co/XSyLG4K/blacklogo.png");
-        } else if (toggleMode === "light") {
-            return ("https://i.ibb.co/XSyLG4K/blacklogo.png");
-        } else {
+        if (toggleMode === "dark") {
             return ("https://i.ibb.co/XxMFPdy/whitelogo.png");
+        } else {
+            return ("https://i.ibb.co/XSyLG4K/blacklogo.png");
        }
       }
       
