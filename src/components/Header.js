@@ -3,7 +3,7 @@ import ToggleFeature from './ToggleFeature.js';
 
 
 function Header (props) {
-const { handleToggleMode, toggleMode, onServiceChange } = props
+const { handleToggleMode, toggleMode, filterMovies} = props
 
 function handleToggleLogo () {
         if (toggleMode === "dark") {
@@ -19,7 +19,7 @@ function handleToggleLogo () {
             <div className="filters">
                 <FilterService 
                     toggleMode={toggleMode}
-                    handleChange={onServiceChange}
+                    filterMovies={filterMovies}
                 />
             </div>
             <div className="logo">
